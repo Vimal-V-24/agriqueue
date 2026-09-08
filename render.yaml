@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: agriqueue
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_ORIGIN
+        value: "*"
+      - key: AVG_PROCESS_MIN
+        value: "9"
+      - key: JWT_EXPIRES_IN
+        value: "8h"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
